@@ -67,7 +67,7 @@ const Intro = ({ onButtonClick }) => (
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
-    className="relative min-h-screen flex flex-col md:justify-center overflow-hidden pt-20 pb-20 px-6 md:px-12 bg-[url('/hero.jpg')] bg-cover bg-right-bottom"
+    className="relative h-[100dvh] flex flex-col md:justify-center overflow-hidden pt-20 pb-20 px-6 md:px-12 bg-[url('/hero.jpg')] bg-cover bg-right-bottom"
   >
     <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-[#0d0d0d] via-[#0d1a2e]/90 to-transparent" />
     <div className="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#1a6fff]/18 blur-[120px] pointer-events-none" />
@@ -83,21 +83,21 @@ const Intro = ({ onButtonClick }) => (
           </div>
           <h1 className="ft-9 font-black leading-[1.0] tracking-tight uppercase mb-6 text-white">
             {CONTENT.hero.title}{' '}
-            <em className="not-italic text-[#1a6fff]">{CONTENT.hero.titleAccent}</em>{' '}
+            <span className="not-italic text-[#1a6fff]">{CONTENT.hero.titleAccent}</span>{' '}
             {CONTENT.hero.titleEnd}
           </h1>
           <p className="ft-2 text-neutral-300 text-lg leading-relaxed max-w-2xl mb-10">{CONTENT.hero.sub}</p>
         </FadeIn>
       </div>
     </div>
-    <div className="absolute container bottom-6 gap-4 mb-16">
-      <p className="text-white ft-3">Find the right kit for your classic</p>
+    <div className="absolute container -bottom-8 mb-16">
       <button
         onClick={() => onButtonClick(false)}
         className="ft-0 animate-bounce inline-block cursor-pointer bg-[#1a6fff] hover:bg-[#0044cc] text-white font-extrabold uppercase px-9 py-4 rounded"
         >
         Start Here →
       </button>
+      <p className="text-white ft-3 mb-12">Find the right kit for your classic</p>
   </div>
 </motion.div>
 );

@@ -98,7 +98,7 @@ export default function StepRenderer({
 
     case 'opt-in':
       return (
-        <div className="flex flex-col bg-brand-1/30 p-12 rounded-3xl">
+        <div className="flex flex-col bg-brand-1/30 p-12 rounded-3xl gap-4">
           <div>
             <p className="ft-4 sans font-bold text-brand-4" dangerouslySetInnerHTML={{ __html: step.title }} />
             {step.description && (

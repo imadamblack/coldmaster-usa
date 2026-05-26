@@ -20,21 +20,18 @@ export default function Header() {
       {/* Logo */}
       <div className="relative flex items-center w-[17rem] h-12">
         <Link href="/" passhref>
-          <a>
-            <Image
-              src='/logo-ligth.png'
-              alt={info.companyName}
-              layout="fill"
-              objectFit="cover"
-            />
-          </a>
+          <Image
+            src='/logo-light.png'
+            alt={info.companyName}
+            layout="fill"
+            objectFit="cover"
+          />
         </Link>
       </div>
 
       {/* Desktop CTA */}
       <Link href="/survey" passhref>
         <a
-
           className="hidden md:inline-block bg-[#1a6fff] hover:bg-[#0044cc] text-white -ft-2 font-bold tracking-[0.06em] uppercase px-12 py-6 rounded transition-colors duration-200"
         >
           {nav.cta}
