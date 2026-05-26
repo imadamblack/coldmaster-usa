@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './type.scss';
+@import './form.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100dvh;
+}
+
+main {
+  @apply flex flex-col relative
+  text-neutral-600;
+}
+
+a.link {
+  @apply flex text-brand-3 mt-8
+  after:content-['→'] after:ml-4
+  hover:text-brand-5 hover:after:ml-8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+button, .button {
+  font-size: 1.6rem;
+  @apply flex justify-center
+  w-max px-8 py-4 font-semibold tracking-wider
+  bg-brand-5 text-white rounded-lg
+  hover:bg-brand-1 hover:text-white;
+  &-secondary {
+    @extend .button;
+    @apply bg-transparent border border-brand-1 hover:bg-transparent text-brand-1 hover:text-brand-1;
+  }
+  &[type] {
+    @extend .button;
+  }
+}
+
+.text-block {
+  @apply xl:w-1/2;
+  & > h4 {
+    @apply mt-16 mb-8;
+  }
+  & ul {
+    @apply mb-4;
+  }
+  & li {
+    @apply before:content-['•'] before:mr-4 ml-4;
+  }
+}
+
+ol {
+  list-style: decimal;
+
+  & > li {
+    @apply ml-16 relative;
+  }
+}
+
+.row {
+  @apply w-full flex flex-wrap justify-between items-stretch my-16;
+}
+.column {
+  @apply flex-grow min-w-[calc(100%/4)] lg:min-w-[calc(100%/12)];
+}
+
+.video-frame {
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+}
+.video-frame iframe, .video-frame object, .video-frame embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overhead {
+  @extend .-ft-3;
+  @apply relative uppercase tracking-widest px-4 py-2 text-white  bg-brand-2 w-max rounded-lg mb-8;
+}
+
+.reading-container {
+  @apply flex flex-col w-full max-w-[40ch] ft-2 p-8 mx-auto space-y-12;
+}

@@ -1,0 +1,507 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/hdr5gfb.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  font-size: 62.5%;
+  font-family: "arial", sans-serif;
+}
+
+@keyframes ft-11 {
+  20% {
+    font-size: 3.26rem;
+  }
+  100% {
+    font-size: 6.2rem;
+  }
+}
+.ft-11 {
+  --tt-key: ft-11;
+  --tt-ease: ease-in;
+  font-size: 6.2rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-10 {
+  20% {
+    font-size: 3.06rem;
+  }
+  100% {
+    font-size: 5.5rem;
+  }
+}
+.ft-10, h1 {
+  --tt-key: ft-10;
+  --tt-ease: ease-in;
+  font-size: 5.5rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-9 {
+  20% {
+    font-size: 2.86rem;
+  }
+  100% {
+    font-size: 4.9rem;
+  }
+}
+.ft-9 {
+  --tt-key: ft-9;
+  --tt-ease: ease-in;
+  font-size: 4.9rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-8 {
+  20% {
+    font-size: 2.68rem;
+  }
+  100% {
+    font-size: 4.36rem;
+  }
+}
+.ft-8 {
+  --tt-key: ft-8;
+  --tt-ease: ease-in;
+  font-size: 4.36rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-7 {
+  20% {
+    font-size: 2.5rem;
+  }
+  100% {
+    font-size: 3.88rem;
+  }
+}
+.ft-7, h2 {
+  --tt-key: ft-7;
+  --tt-ease: ease-in;
+  font-size: 3.88rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-6 {
+  20% {
+    font-size: 2.36rem;
+  }
+  100% {
+    font-size: 3.45rem;
+  }
+}
+.ft-6 {
+  --tt-key: ft-6;
+  --tt-ease: ease-in;
+  font-size: 3.45rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-5 {
+  20% {
+    font-size: 2.2rem;
+  }
+  100% {
+    font-size: 3.05rem;
+  }
+}
+.ft-5 {
+  --tt-key: ft-5;
+  --tt-ease: ease-in;
+  font-size: 3.05rem;
+  line-height: 1.1;
+}
+
+@keyframes ft-4 {
+  20% {
+    font-size: 2.1rem;
+  }
+  100% {
+    font-size: 2.7rem;
+  }
+}
+.ft-4, h3 {
+  --tt-key: ft-4;
+  --tt-ease: ease-in;
+  font-size: 2.7rem;
+  line-height: 1.2;
+}
+
+@keyframes ft-3 {
+  20% {
+    font-size: 1.95rem;
+  }
+  100% {
+    font-size: 2.4rem;
+  }
+}
+.ft-3, h4 {
+  --tt-key: ft-3;
+  --tt-ease: ease-in;
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+@keyframes ft-2 {
+  20% {
+    font-size: 1.8rem;
+  }
+  100% {
+    font-size: 2.15rem;
+  }
+}
+.ft-2, h5 {
+  --tt-key: ft-2;
+  --tt-ease: ease-in;
+  font-size: 2.15rem;
+  line-height: 1.5;
+}
+
+@keyframes ft-1 {
+  20% {
+    font-size: 1.7rem;
+  }
+  100% {
+    font-size: 1.9rem;
+  }
+}
+.ft-1, h6 {
+  --tt-key: ft-1;
+  --tt-ease: ease-in;
+  font-size: 1.9rem;
+  line-height: 1.5;
+}
+
+@keyframes ft-0 {
+  20% {
+    font-size: 1.6rem;
+  }
+  100% {
+    font-size: 1.7rem;
+  }
+}
+.ft-0, input[type=radio] + label, input[type=checkbox] + label, label, li, p {
+  --tt-key: ft-0;
+  --tt-ease: ease-in;
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+@keyframes -ft-1 {
+  20% {
+    font-size: 1.4rem;
+  }
+  100% {
+    font-size: 1.6rem;
+  }
+}
+.-ft-1 {
+  --tt-key: -ft-1;
+  --tt-ease: ease-in;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@keyframes -ft-2 {
+  20% {
+    font-size: 1.25rem;
+  }
+  100% {
+    font-size: 1.5rem;
+  }
+}
+.-ft-2 {
+  --tt-key: -ft-2;
+  --tt-ease: ease-in;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+@keyframes -ft-3 {
+  20% {
+    font-size: 1.1rem;
+  }
+  100% {
+    font-size: 1.3rem;
+  }
+}
+.-ft-3, .overhead {
+  --tt-key: -ft-3;
+  --tt-ease: ease-in;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+@keyframes -ft-4 {
+  20% {
+    font-size: 1.1rem;
+  }
+  100% {
+    font-size: 1.1rem;
+  }
+}
+.-ft-4 {
+  --tt-key: -ft-4;
+  --tt-ease: ease-in;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+@font-face {
+  font-display: swap;
+}
+label {
+  font-family: "arial", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "arial", sans-serif;
+  letter-spacing: normal; /* Equivalente a tracking-normal */
+  margin-block-start: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  font-weight: 700; /* Equivalente a font-bold */
+}
+
+p, li {
+  font-family: "arial", sans-serif;
+  margin-block-start: 0;
+}
+
+a {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sans {
+  font-family: "arial", sans-serif;
+}
+
+.serif {
+  font-family: "arial", sans-serif;
+}
+
+.condensed {
+  font-family: "arial", sans-serif;
+}
+
+form {
+  font-size: 16px;
+}
+
+input, select, textarea {
+  font-size: 1.6rem;
+  @apply flex border border-gray-500 rounded-lg px-6 py-4 w-full;
+}
+input::placeholder, select::placeholder, textarea::placeholder {
+  @apply text-gray-500;
+}
+input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  @apply text-gray-500;
+}
+
+label {
+  @apply flex mt-6 mb-2;
+}
+
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+
+input[type=radio] + label, input[type=checkbox] + label {
+  @apply flex w-full p-8 mt-0 border-2 rounded-2xl
+  text-left
+  justify-start items-center
+  cursor-pointer
+  bg-brand-1/5;
+}
+
+input[type=radio]:checked + label, input[type=checkbox]:checked + label {
+  @apply border-brand-2 bg-gradient-to-br from-brand-1 to-cyan-500 text-neutral-100 font-semibold;
+}
+
+select {
+  appearance: none;
+  border-radius: 0;
+}
+select::-ms-expand {
+  display: none;
+}
+select option:disabled {
+  @apply text-gray-500;
+}
+select:invalid {
+  @apply text-gray-500;
+}
+select[disabled] {
+  @apply text-gray-500;
+}
+
+.select {
+  position: relative;
+}
+.select::after {
+  font-size: 1.4rem;
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 25%;
+  content: "expand_more";
+  font-family: "Material Icons";
+  color: black;
+}
+
+.survey-card {
+  @apply bg-white top-20 flex flex-col flex-grow w-full max-w-[56rem] p-8 rounded-b-2xl overflow-scroll;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100dvh;
+}
+
+main {
+  @apply flex flex-col relative
+  text-neutral-600;
+}
+
+a.link {
+  @apply flex text-brand-3 mt-8
+  after:content-["→"] after:ml-4
+  hover:text-brand-5 hover:after:ml-8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+button, .button, button[type], .button[type], button-secondary[type], [type].button-secondary, button-secondary, .button-secondary {
+  font-size: 1.6rem;
+  @apply flex justify-center
+  w-max px-8 py-4 font-semibold tracking-wider
+  bg-brand-5 text-white rounded-lg
+  hover:bg-brand-1 hover:text-white;
+}
+button-secondary, .button-secondary {
+  @apply bg-transparent border border-brand-1 hover:bg-transparent text-brand-1 hover:text-brand-1;
+}
+.text-block {
+  @apply xl:w-1/2;
+}
+.text-block > h4 {
+  @apply mt-16 mb-8;
+}
+.text-block ul {
+  @apply mb-4;
+}
+.text-block li {
+  @apply before:content-["•"] before:mr-4 ml-4;
+}
+
+ol {
+  list-style: decimal;
+}
+ol > li {
+  @apply ml-16 relative;
+}
+
+.row {
+  @apply w-full flex flex-wrap justify-between items-stretch my-16;
+}
+
+.column {
+  @apply flex-grow min-w-[calc(100%/4)] lg:min-w-[calc(100%/12)];
+}
+
+.video-frame {
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+}
+
+.video-frame iframe, .video-frame object, .video-frame embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overhead {
+  @apply relative uppercase tracking-widest px-4 py-2 text-white  bg-brand-2 w-max rounded-lg mb-8;
+}
+
+.reading-container {
+  @apply flex flex-col w-full max-w-[40ch] ft-2 p-8 mx-auto space-y-12;
+}
+
+/*# sourceMappingURL=globals.css.map */
