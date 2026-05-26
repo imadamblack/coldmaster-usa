@@ -5,6 +5,10 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
         <link rel="icon" href="/images/icon.png" />
         <TrackingAnalytics />
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}

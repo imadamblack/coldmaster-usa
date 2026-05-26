@@ -36,7 +36,7 @@ export default function Layout({children}) {
   return (
     <>
       <Head>
-        <title>{info.companyName} | {info.description}</title>
+        <title>{`${info.companyName} | ${info.description}`}</title>
         <meta name="description" content={info.description}/>
         <link rel="icon" type="image/png" href="favicon.png"/>
       </Head>

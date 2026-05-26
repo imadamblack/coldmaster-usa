@@ -71,10 +71,13 @@ const SectionLabel = ({children}) => (
 ───────────────────────────────────────── */
 function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col md:justify-center overflow-hidden pt-48 pb-20 px-6 md:px-12 bg-[url('/hero.jpg')] bg-cover bg-right-bottom">
+    <section
+      className="relative min-h-[100dvh] flex flex-col md:justify-center overflow-hidden pt-48 pb-20 px-6 md:px-12 bg-[url('/hero.jpg')] bg-cover bg-right-bottom">
       {/* Backgrounds */}
-      <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-[#0d0d0d] via-[#0d1a2e]/90 to-transparent"/>
-      <div className="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#1a6fff]/18 blur-[120px] pointer-events-none"/>
+      <div
+        className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-[#0d0d0d] via-[#0d1a2e]/90 to-transparent"/>
+      <div
+        className="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#1a6fff]/18 blur-[120px] pointer-events-none"/>
 
       {/* Content */}
       <div className="container relative z-10">
@@ -105,11 +108,11 @@ function Hero() {
       </div>
       <div className="absolute container bottom-6 flex flex-wrap gap-4 mb-16">
         <Link href="/survey">
-        <a
-          className="ft-0 inline-block bg-[#1a6fff] hover:bg-[#0044cc] hover:-translate-y-0.5 text-white font-extrabold uppercase px-9 py-4 rounded transition-all duration-200"
-        >
-          {CONTENT.hero.ctaPrimary}
-        </a>
+          <a
+            className="ft-0 inline-block bg-[#1a6fff] hover:bg-[#0044cc] hover:-translate-y-0.5 text-white font-extrabold uppercase px-9 py-4 rounded transition-all duration-200"
+          >
+            {CONTENT.hero.ctaPrimary}
+          </a>
         </Link>
       </div>
     </section>
@@ -152,9 +155,9 @@ function Value() {
         <FadeIn delay={100}>
           <div className="bg-[#0d0d0d] rounded-xl p-10 border border-white/[0.06]">
             <ul className="flex flex-col gap-3.5">
-              <p className="ft-3 font-bold uppercase text-[#8a9ab0]">
+              <li className="ft-3 font-bold uppercase text-[#8a9ab0]">
                 Coldmaster
-              </p>
+              </li>
               {CONTENT.value.pros.map((item) => (
                 <li key={item} className="flex items-start gap-3 ft-0 text-[#b0c4d8]">
                   <span className="text-[#1a6fff] shrink-0">✓</span>
@@ -164,9 +167,9 @@ function Value() {
               <li>
                 <hr className="border-white/[0.08] my-2"/>
               </li>
-              <p className="ft-3 font-bold uppercase text-[#8a9ab0]">
+              <li className="ft-3 font-bold uppercase text-[#8a9ab0]">
                 The Alternatives
-              </p>
+              </li>
               {CONTENT.value.cons.map((item) => (
                 <li key={item} className="flex items-start gap-3 ft-0 text-[#b0c4d8]">
                   <span className="text-[#e8291c] shrink-0">✕</span>
@@ -177,12 +180,13 @@ function Value() {
           </div>
         </FadeIn>
         <div className="flex flex-wrap gap-4 w-[32rem] mx-auto justify-center mb-8">
-          <a
-            href="/survey"
-            className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
-          >
-            Find The Right Kit →
-          </a>
+          <Link href="/survey" passHref>
+            <div
+              className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
+            >
+              Find The Right Kit →
+            </div>
+          </Link>
           <a
             href="tel:+17273308557"
             onClick={() => fbEvent('PhoneCall Click')}
@@ -244,12 +248,13 @@ function KitSelector() {
       </FadeIn>
 
       <div className="flex flex-wrap gap-4 w-[32rem] mx-auto justify-center mb-8">
-        <a
-          href="/survey"
-          className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
-        >
-          Find The Right Kit →
-        </a>
+        <Link href="/survey" passHref>
+          <div
+            className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Find The Right Kit →
+          </div>
+        </Link>
         <a
           href="tel:+17273308557"
           onClick={() => fbEvent('PhoneCall Click')}
@@ -328,12 +333,13 @@ function KitContents() {
         </FadeIn>
       </div>
       <div className="flex flex-wrap gap-4 w-[32rem] mx-auto justify-center mb-8">
-        <a
-          href="/survey"
-          className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
-        >
-          Find The Right Kit →
-        </a>
+        <Link href="/survey">
+          <div
+            className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff] text-center font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Find The Right Kit →
+          </div>
+        </Link>
         <a
           href="tel:+17273308557"
           onClick={() => fbEvent('PhoneCall Click')}
@@ -362,12 +368,12 @@ function CTAFinal() {
         <p className="text-white/70 ft-2 mb-9" dangerouslySetInnerHTML={{__html: c.sub}}/>
 
         <div className="flex flex-wrap gap-4 w-[32rem] mx-auto justify-center mb-8">
-          <a
-            href="/survey"
-            className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff]  font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200"
-          >
-            {c.ctaPrimary}
-          </a>
+          <Link href="/survey">
+            <a
+              className="ft-0 w-full bg-white hover:bg-[#d6f0ff] text-[#1a6fff]  font-extrabold uppercase px-10 py-4 rounded hover:-translate-y-0.5 transition-all duration-200">
+              {c.ctaPrimary}
+            </a>
+          </Link>
           <a
             href="tel:+17273308557"
             onClick={() => fbEvent('PhoneCall Click')}
