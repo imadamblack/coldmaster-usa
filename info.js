@@ -24,7 +24,7 @@ export const info = {
     state: "",
   },
   optInWebhook: '',
-  surveyWebhook: 'https://n8n.notoriovs.com/webhook-test/c0f26988-52d4-46a5-b37e-4c51103b69a7',
+  surveyWebhook: 'https://n8n.notoriovs.com/webhook/c0f26988-52d4-46a5-b37e-4c51103b69a7',
   surveyRedirect: '',
   privacyNotice: "/aviso-privacidad",
   termsConditions: "/aviso-privacidad",
