@@ -324,8 +324,6 @@ export default function Survey({ lead, utm }) {
     window.scrollTo(0, 0);
   }, [showIntro]);
 
-  // formSteps se recalcula en cada render con el user_type actual
-  // Cuando el usuario aún no eligió, tail = [] y solo existe el bifurcador
   const user_type = watch('user_type');
   let formSteps = setFormSteps({ fullName: lead.fullName, phone: lead.phone, user_type });
 
@@ -351,6 +349,56 @@ export default function Survey({ lead, utm }) {
     return step.type !== 'checkpoint' ? i : lastIndex;
   }, 0);
 
+  const getStepFieldNames = (step) => {
+    if (!step) return [];
+
+    if (step.type === 'opt-in') {
+      return step.fields.map((field) => field.name);
+    }
+
+    if (step.name) {
+      return [step.name];
+    }
+
+    return [];
+  };
+
+  const requiredContactFields = ['fullName', 'email', 'phone'];
+
+  const handlePrimaryButtonClick = async () => {
+    if (sending) return;
+
+    const currentStep = formSteps[formStep];
+    const fieldNames = getStepFieldNames(currentStep);
+
+    const currentStepIsValid = await methods.trigger(fieldNames, {
+      shouldFocus: true,
+    });
+
+    if (!currentStepIsValid) {
+      setInputError(formStep);
+      return;
+    }
+
+    if (formStep !== lastInputIndex) {
+      setInputError(null);
+      window.scrollTo(0, 0);
+      setFormStep((prev) => Math.min(prev + 1, formSteps.length - 1));
+      return;
+    }
+
+    const contactIsValid = await methods.trigger(requiredContactFields, {
+      shouldFocus: true,
+    });
+
+    if (!contactIsValid) {
+      setInputError(formStep);
+      return;
+    }
+
+    handleSubmit(onSubmit)();
+  };
+
   const handleNext = async () => {
     const currentStep = formSteps[formStep];
 
@@ -358,34 +406,73 @@ export default function Survey({ lead, utm }) {
       return setFormStep((prev) => Math.min(prev + 1, formSteps.length - 1));
     }
 
-    const valid = await methods.trigger(currentStep.name);
+    const fieldNames = getStepFieldNames(currentStep);
+
+    const valid = await methods.trigger(fieldNames, {
+      shouldFocus: true,
+    });
+
     if (!valid) {
       setInputError(formStep);
       return;
     }
 
-    // Si acaba de responder el bifurcador, los pasos se expanden
-    // automáticamente en el próximo render gracias a watch('user_type')
     setInputError(null);
     window.scrollTo(0, 0);
     setFormStep((prev) => Math.min(prev + 1, formSteps.length - 1));
   };
 
   const onSubmit = async (data) => {
+    const fullName = data.fullName?.trim();
+    const email = data.email?.trim();
+    const phone = data.phone?.trim();
+
+    if (!fullName || !email || !phone) {
+      console.warn('Blocked incomplete lead:', data);
+
+      await methods.trigger(['fullName', 'email', 'phone'], {
+        shouldFocus: true,
+      });
+
+      return;
+    }
+
     setSending(true);
+
     try {
-      // data.whatsapp = '521' + data.phone.replace(/^(MX)?\+?(52)?\s?0?1?|\s|\(|\)|-|[a-zA-Z]/g, '');
       data.dateAdded = Date.now();
 
-      const payload = { ...lead, ...data, ...utm };
+      const payload = {
+        ...lead,
+        ...data,
+        ...utm,
+        fullName,
+        email,
+        phone,
+      };
+
       const res = await fetch(info.surveyWebhook, {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json' },
       });
 
-      fbEvent('Lead', { phone: data.phone, externalID: res.id });
-      setCookie('lead', { ...data, id: res.id });
+      if (!res.ok) {
+        throw new Error(`Webhook error: ${res.status}`);
+      }
+
+      const result = await res.json().catch(() => ({}));
+
+      fbEvent('Lead', {
+        phone,
+        externalID: result.id,
+      });
+
+      setCookie('lead', {
+        ...data,
+        id: result.id,
+      });
+
       await router.push('/thankyou');
     } catch (err) {
       console.error('Submit error:', err);
@@ -421,7 +508,13 @@ export default function Survey({ lead, utm }) {
             <div className="relative container !px-0 md:pb-0 flex flex-col flex-grow md:flex-grow-0 items-center pointer-events-auto touch-auto">
               <div className="survey-card">
                 <FormProvider {...methods}>
-                  <form className="flex flex-col flex-grow" onSubmit={handleSubmit(onSubmit)}>
+                  <form
+                    className="flex flex-col flex-grow"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={formStep}
@@ -457,13 +550,7 @@ export default function Survey({ lead, utm }) {
                       <button
                         type="button"
                         disabled={sending}
-                        onClick={() => {
-                          if (formStep === lastInputIndex) {
-                            handleSubmit(onSubmit)();
-                          } else {
-                            handleNext();
-                          }
-                        }}
+                        onClick={handlePrimaryButtonClick}
                         className="mt-auto !w-full"
                       >
                         {sending && <span className="animate-spin mr-4">+</span>}
