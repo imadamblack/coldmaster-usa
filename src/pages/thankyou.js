@@ -31,9 +31,9 @@ const COPY = {
     },
     cta: {
       label: "Can't wait?",
-      phone: "Visit our store",
-      href: "https://www.coldmasterinc.com/electric-compressor",
-      whatsapp: "https://wa.me/17273308557",
+      phone: "+1 (727) 330-8557",
+      href: "tel:+17273308557",
+      store: "https://www.coldmasterinc.com/electric-compressor",
     },
     footer: "BBB Accredited · 30+ Years in Classic Car A/C · Ships from the U.S.",
   },
@@ -66,7 +66,7 @@ const COPY = {
       label: "Need to talk now?",
       phone: "+1 (727) 330-8557",
       href: "tel:+17273308557",
-      whatsapp: "https://wa.me/17273308557",
+      store: "https://www.coldmasterinc.com/electric-compressor",
     },
     footer: "BBB Accredited · 30+ Years in Classic Car A/C · Ships from the U.S.",
   },
@@ -117,25 +117,33 @@ export default function ThankYou({userType}) {
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#8a9ab0] mb-4">
             {c.cta.label}
           </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col gap-6">
+            <hr/>
             <a
-              href={c.cta.href}
+              href={c.cta.store}
               target="_blank"
               onClick={() => fbEvent('PhoneCall Click')}
               className="ft-0 flex-1 flex items-center justify-center gap-4 bg-[#1a6fff] hover:bg-[#0044cc] text-white font-bold tracking-[0.06em] uppercase px-6 py-6 rounded"
             >
-              {c.cta.phone}
+              Visit our store
             </a>
-            {/*<a*/}
-            {/*  href={c.cta.whatsapp}*/}
-            {/*  onClick={() => fbEvent('WhatsApp Click')}*/}
-            {/*  target="_blank"*/}
-            {/*  rel="noopener noreferrer"*/}
-            {/*  className="-ft-1 flex-1 flex items-center justify-center gap-4 border border-[#1a6fff]/60 hover:bg-[#1a6fff]/10 text-brand-1 font-bold tracking-[0.06em] uppercase px-6 py-4 rounded"*/}
-            {/*>*/}
-            {/*  <span>💬</span>*/}
-            {/*  WhatsApp*/}
-            {/*</a>*/}
+            <hr/>
+            <a
+              href={c.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="-ft-1 flex-1 flex items-center justify-center gap-4 hover:bg-[#1a6fff]/10 text-brand-1 font-bold tracking-[0.06em] uppercase px-6 py-4 rounded"
+            >
+              📞{' '}{c.cta.phone}
+            </a>
+            <a
+              href="mailto:sales@coldmasterinc.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="-ft-1 flex-1 flex items-center justify-center gap-4 hover:bg-[#1a6fff]/10 text-brand-1 font-bold tracking-[0.06em] px-6 py-4 rounded"
+            >
+              ✉️ sales@coldmasterinc.com
+            </a>
           </div>
         </div>
 
