@@ -30,9 +30,9 @@ const COPY = {
       ],
     },
     cta: {
-      label: "Can't wait? Reach us now",
-      phone: "+1 (727) 330-8557",
-      href: "tel:+17273308557",
+      label: "Can't wait?",
+      phone: "Visit our store",
+      href: "https://www.coldmasterinc.com/electric-compressor",
       whatsapp: "https://wa.me/17273308557",
     },
     footer: "BBB Accredited · 30+ Years in Classic Car A/C · Ships from the U.S.",
@@ -120,22 +120,22 @@ export default function ThankYou({userType}) {
           <div className="flex flex-col sm:flex-row gap-6">
             <a
               href={c.cta.href}
+              target="_blank"
               onClick={() => fbEvent('PhoneCall Click')}
               className="ft-0 flex-1 flex items-center justify-center gap-4 bg-[#1a6fff] hover:bg-[#0044cc] text-white font-bold tracking-[0.06em] uppercase px-6 py-6 rounded"
             >
-              <span>📞</span>
               {c.cta.phone}
             </a>
-            <a
-              href={c.cta.whatsapp}
-              onClick={() => fbEvent('WhatsApp Click')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="-ft-1 flex-1 flex items-center justify-center gap-4 border border-[#1a6fff]/60 hover:bg-[#1a6fff]/10 text-brand-1 font-bold tracking-[0.06em] uppercase px-6 py-4 rounded"
-            >
-              <span>💬</span>
-              WhatsApp
-            </a>
+            {/*<a*/}
+            {/*  href={c.cta.whatsapp}*/}
+            {/*  onClick={() => fbEvent('WhatsApp Click')}*/}
+            {/*  target="_blank"*/}
+            {/*  rel="noopener noreferrer"*/}
+            {/*  className="-ft-1 flex-1 flex items-center justify-center gap-4 border border-[#1a6fff]/60 hover:bg-[#1a6fff]/10 text-brand-1 font-bold tracking-[0.06em] uppercase px-6 py-4 rounded"*/}
+            {/*>*/}
+            {/*  <span>💬</span>*/}
+            {/*  WhatsApp*/}
+            {/*</a>*/}
           </div>
         </div>
 
