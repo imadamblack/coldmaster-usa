@@ -10,7 +10,7 @@ export default function Layout({children}) {
   const [header, setHeader] = useState(true);
 
   useEffect(() => {
-    setHeader(router.pathname !== '/survey');
+    setHeader(!router.pathname.startsWith('/survey'));
   }, [router.pathname]);
 
   // useEffect(() => {

@@ -29,13 +29,13 @@ export default function Header() {
       </div>
 
       {/* Desktop CTA */}
-      <Link href="/survey" passHref>
-        <div
-          className="hidden md:inline-block bg-[#1a6fff] hover:bg-[#0044cc] text-white -ft-2 font-bold tracking-[0.06em] uppercase px-12 py-6 rounded transition-colors duration-200"
-        >
-          {nav.cta}
-        </div>
-      </Link>
+      {/*<Link href="/survey" passHref>*/}
+      {/*  <div*/}
+      {/*    className="hidden md:inline-block bg-[#1a6fff] hover:bg-[#0044cc] text-white -ft-2 font-bold tracking-[0.06em] uppercase px-12 py-6 rounded transition-colors duration-200"*/}
+      {/*  >*/}
+      {/*    {nav.cta}*/}
+      {/*  </div>*/}
+      {/*</Link>*/}
     </header>
   )
     ;
