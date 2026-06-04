@@ -232,40 +232,19 @@ const setFormSteps = ({ fullName, phone }) => ([
   {
     type: 'opt-in',
     title: 'Where do we send your match?',
-    description: "We'll text your recommendation and a quote on WhatsApp.",
+    description: "We'll text your recommendation and a quote on your email.",
     fields: [
+      { type: 'text', name: 'fullName', title: 'Your name',           inputOptions: { required: 'What is your name?' } },
+      { type: 'text', name: 'email',    title: 'Your email',          inputOptions: { required: 'What is your email?' } },
       {
-        type: 'text',
-        name: 'fullName',
-        title: 'Your name',
-        placeholder: 'First and last name',
-        autoComplete: false,
-        inputOptions: {
-          required: 'What is your name?',
-        },
-      },
-      {
-        type: 'email',
-        name: 'email',
-        title: 'Your Email',
-        placeholder: 'Your email',
-        autoComplete: false,
+        type: 'tel', name: 'phone', title: 'Your WhatsApp or phone',
         inputOptions: {
           required: 'What is your phone number?',
-        },
-      },
-      {
-        type: 'tel',
-        name: 'phone',
-        title: 'Phone Number',
-        placeholder: '+1 ___ ___ ____',
-        autoComplete: false,
-        inputOptions: {
-          required: 'What is your phone number?',
+          maxLength: { value: 10, message: '10-digit number please' },
+          minLength: { value: 10, message: '10-digit number please' },
         },
       },
     ],
-    cta: 'See My Match →',
   },
 ]);
 
@@ -392,7 +371,7 @@ export default function Survey({ lead, utm }) {
     const fullName = data.fullName?.trim();
     const email = data.email?.trim();
     const phone = data.phone?.trim();
-    const user_type = 'rhino';
+    data.user_type = 'rhino';
 
     if (!fullName || !email || !phone) {
       console.warn('Blocked incomplete lead:', data);
@@ -416,7 +395,6 @@ export default function Survey({ lead, utm }) {
         fullName,
         email,
         phone,
-        user_type,
       };
 
       const res = await fetch(info.surveyWebhook, {

@@ -70,6 +70,39 @@ const COPY = {
     },
     footer: "BBB Accredited · 30+ Years in Classic Car A/C · Ships from the U.S.",
   },
+  rhino: {
+    badge: "Request received",
+    title: "Someone from our team will reach out",
+    titleAccent: "within one business day.",
+    sub: "We'll go over pricing, availability, and how we can work together long-term. If you need to talk sooner, you can reach us directly below.",
+    whatNext: {
+      label: "What happens next",
+      steps: [
+        {
+          icon: "📞",
+          title: "We call you",
+          desc: "A specialist from our team will contact you to understand your volume and needs.",
+        },
+        {
+          icon: "💲",
+          title: "We send you pricing",
+          desc: "You'll get clear pricing based on your expected volume — no surprises.",
+        },
+        {
+          icon: "🤝",
+          title: "We set up the account",
+          desc: "If it's a fit, we get you set up so you can order reliably whenever you need.",
+        },
+      ],
+    },
+    cta: {
+      label: "Need to talk now?",
+      phone: "+1 (727) 330-8557",
+      href: "tel:+17273308557",
+      store: "https://www.coldmasterinc.com/heavy-duty-kits",
+    },
+    footer: "BBB Accredited · 30+ Years in Classic Car A/C · Ships from the U.S.",
+  },
 };
 
 export default function ThankYou({userType}) {
@@ -245,6 +278,7 @@ export async function getServerSideProps(ctx) {
 
   const lead = parseCookie(getRawCookie('lead'));
 
+  console.log(lead);
   // user_type viene guardado en la cookie lead después del submit
   const userType = lead?.user_type ?? 'personal';
 
